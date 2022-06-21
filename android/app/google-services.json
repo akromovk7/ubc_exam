@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "873224038718",
+    "project_id": "ubcappfire",
+    "storage_bucket": "ubcappfire.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873224038718:android:fe985dbfaea51ada34e46f",
+        "android_client_info": {
+          "package_name": "com.kamoliddin.ubc_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873224038718-lc3s2ur9qsengue0n78jr836cg2tqon0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE08Igm_E27SX4locfznD1T0ZdKAa82wI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873224038718-lc3s2ur9qsengue0n78jr836cg2tqon0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
