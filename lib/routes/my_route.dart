@@ -10,9 +10,9 @@ class MyRoute {
   Route? myRoutes(RouteSettings settings) {
     var args = settings.arguments;
     switch (settings.name) {
-      case "splash":
+      case "/splash":
         return easynavigate(SplashScreenView());
-        case "auth":
+        case "/auth":
         return easynavigate(AuthView());
     }
   }
