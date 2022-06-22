@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ubc_app/core/constants/color_const.dart';
-import 'package:ubc_app/core/constants/text_styles.dart';
+import 'package:ubc_app/core/components/text_styles.dart';
 
 class MyTextField {
   static textField({

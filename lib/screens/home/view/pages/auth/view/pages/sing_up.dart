@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ubc_app/core/constants/color_const.dart';
 import 'package:ubc_app/core/constants/icon_const.dart';
-import 'package:ubc_app/core/constants/text_styles.dart';
+import 'package:ubc_app/core/components/text_styles.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/cubit/auth_cubit.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/state/auth_state.dart';
 import 'package:ubc_app/widgets/app_bar_widget.dart';
