@@ -1,23 +1,23 @@
-abstract class AuthViewState {
-  AuthViewState();
+abstract class AuthState {
+  AuthState();
 }
 
-class SignUpState extends AuthViewState {
+class SignUpState extends AuthState {
   SignUpState();
 }
 
-class SignInState extends AuthViewState {
+class SignInState extends AuthState {
   SignInState();
 }
 
-class ForgotState extends AuthViewState {
+class ForgotState extends AuthState {
   ForgotState();
 }
 
-class OTACNumberState extends AuthViewState {
+class OTACNumberState extends AuthState {
   OTACNumberState();
 }
 
-class ResetPasswordState extends AuthViewState {
+class ResetPasswordState extends AuthState {
   ResetPasswordState();
 }

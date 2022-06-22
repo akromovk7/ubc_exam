@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ubc_app/core/base/size_extension.dart';
 import 'package:ubc_app/core/constants/color_const.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ubc_app/core/constants/text_styles.dart';
@@ -19,7 +18,7 @@ class _SplashScreenViewState extends State<SplashScreenView> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 1), () {
+    Timer(Duration(seconds: 3), () {
       NavigationService.instance.pushNamedAndRemoveUntil("/auth");
     });
   }

@@ -20,7 +20,7 @@ class AuthView extends StatelessWidget {
   }
 
   Scaffold authScaffold() => Scaffold(
-        body: BlocConsumer<AuthCubit, AuthViewState>(
+        body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {},
           builder: (context, state) {
             if (state is SignUpState) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ubc_app/core/components/theme_components.dart';
 import 'package:ubc_app/routes/my_route.dart';
+import 'package:ubc_app/service/navigation_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
+              navigatorKey: NavigationService.instance.navigatorKey,
               debugShowCheckedModeBanner: false,
               title: 'UBC App',
               theme: MyTheme.mytheme,
