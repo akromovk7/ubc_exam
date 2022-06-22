@@ -2,14 +2,21 @@ import 'package:bloc/bloc.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/state/auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState>{
-  AuthCubit() : super(SignUpState());
+  AuthCubit() : super(SignInState());
 
 bool _isShown = false;
+bool _isChecked = false;
 
   get getShown => _isShown;
 
   void obSecure() {
     _isShown = !_isShown;
+  }
+
+  get getChecked => _isChecked;
+
+  void checked() {
+    _isChecked = !_isChecked;
   }
 
   changeState(AuthState state) {

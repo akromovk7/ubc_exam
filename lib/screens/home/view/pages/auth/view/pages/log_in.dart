@@ -7,13 +7,14 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:ubc_app/core/constants/icon_const.dart';
 import 'package:ubc_app/core/constants/text_styles.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/cubit/auth_cubit.dart';
+import 'package:ubc_app/screens/home/view/pages/auth/state/auth_state.dart';
 import 'package:ubc_app/widgets/button_widget.dart';
 import 'package:ubc_app/widgets/number_input_widgets.dart';
 import 'package:ubc_app/widgets/text_form_widget.dart';
 import 'package:ubc_app/widgets/validator_control_widget.dart';
 
-class SignUpView extends StatelessWidget {
-  SignUpView({Key? key}) : super(key: key);
+class SignInView extends StatelessWidget {
+  SignInView({Key? key}) : super(key: key);
 
   TextEditingController passwordController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -95,8 +96,12 @@ class SignUpView extends StatelessWidget {
               ),
               FadeInUp(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 30.h),
-                  child: MyElevatedButton.buttonstyle(text: "Sign in"),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+                  child: MyElevatedButton.buttonstyle(
+                      ontap: () =>
+                          context.read<AuthCubit>().changeState(SignUpState()),
+                      text: "Sign in"),
                 ),
               ),
             ],

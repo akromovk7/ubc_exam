@@ -6,10 +6,11 @@ import 'package:ubc_app/core/constants/font_sizes.dart';
 class MyElevatedButton {
   static buttonstyle(
       {required String text,
+      VoidCallback? ontap,
       Color? textcolor = ConsColors.kWhite,
       Color? buttoncolor = ConsColors.kButtonColor}) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: ontap,
       child: Text(
         text,
         style: TextStyle(
