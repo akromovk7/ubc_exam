@@ -2,12 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ubc_app/core/constants/color_const.dart';
 import 'package:ubc_app/core/constants/icon_const.dart';
 import 'package:ubc_app/core/components/text_styles.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/cubit/auth_cubit.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/state/auth_state.dart';
+import 'package:ubc_app/service/navigation_service.dart';
 import 'package:ubc_app/widgets/app_bar_widget.dart';
 import 'package:ubc_app/widgets/button_widget.dart';
 import 'package:ubc_app/widgets/text_form_widget.dart';
@@ -29,7 +29,9 @@ class SignUpView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
-              leading: ConsIcons.leftArrow,
+              leading: IconButton(
+                  onPressed: () => NavigationService.instance.pop(),
+                  icon: ConsIcons.leftArrow),
               center: Text(
                 "New Registration",
                 style: FontStyles.appBartext,
@@ -58,11 +60,8 @@ class SignUpView extends StatelessWidget {
                         style: FontStyles.darkGreytextmini,
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 52.h,
-                      width: 374.w,
-                      margin: EdgeInsets.symmetric(
+                    Padding(
+                      padding: EdgeInsets.symmetric(
                           horizontal: 20.w, vertical: 10.h),
                       child: MyTextField.textField(
                         isShown: context.watch<AuthCubit>().getShown,
@@ -78,23 +77,25 @@ class SignUpView extends StatelessWidget {
                         style: FontStyles.darkGreytextmini,
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 52.h,
-                      width: 374.w,
-                      margin: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 10.h),
-                      child: MyTextField.textField(
-                        isShown: context.watch<AuthCubit>().getShown,
-                        text: "Password",
-                        controller: passwordController,
-                        validator: ValidatorController.passwordValidator,
-                        iconButton: IconButton(
-                          onPressed: () {
-                            context.read<AuthCubit>().obSecure();
-                          },
-                          icon: ConsIcons.eye,
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: StatefulBuilder(
+                        builder: (context, setState) {
+                          return MyTextField.textField(
+                            isShown: context.watch<AuthCubit>().getShown,
+                            text: "Password",
+                            controller: passwordController,
+                            validator: ValidatorController.passwordValidator,
+                            iconButton: IconButton(
+                              onPressed: () {
+                                context.read<AuthCubit>().obSecure();
+                                setState(() {});
+                              },
+                              icon: ConsIcons.eye,
+                            ),
+                          );
+                        },
                       ),
                     ),
                     Padding(
@@ -104,37 +105,44 @@ class SignUpView extends StatelessWidget {
                         style: FontStyles.darkGreytextmini,
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 52.h,
-                      width: 374.w,
-                      margin: EdgeInsets.symmetric(
+                    Padding(
+                      padding: EdgeInsets.symmetric(
                           horizontal: 20.w, vertical: 10.h),
-                      child: MyTextField.textField(
-                        isShown: context.watch<AuthCubit>().getShown,
-                        text: "Password Confirmation",
-                        controller: passwordConfController,
-                        validator: ValidatorController.passwordValidator,
-                        iconButton: IconButton(
-                          onPressed: () {
-                            context.read<AuthCubit>().obSecure();
-                          },
-                          icon: ConsIcons.eye,
-                        ),
+                      child: StatefulBuilder(
+                        builder: (context, setState) {
+                          return MyTextField.textField(
+                            isShown: context.watch<AuthCubit>().getShown,
+                            text: "Password Confirmation",
+                            controller: passwordConfController,
+                            validator: ValidatorController.passwordValidator,
+                            iconButton: IconButton(
+                              onPressed: () {
+                                context.read<AuthCubit>().obSecure();
+                                setState(() {});
+                              },
+                              icon: ConsIcons.eye,
+                            ),
+                          );
+                        },
                       ),
                     ),
                     Row(
                       children: [
-                        Checkbox(
-                          value: context.watch<AuthCubit>().getChecked,
-                          onChanged: (bool) {
-                            context.read<AuthCubit>().checked();
+                        StatefulBuilder(
+                          builder: (context, setState) {
+                            return Checkbox(
+                              value: context.watch<AuthCubit>().getChecked,
+                              onChanged: (bool) {
+                                context.read<AuthCubit>().checked();
+                                setState(() {});
+                              },
+                            );
                           },
                         ),
-                        SizedBox(
-                            height: 22.h,
-                            width: 328.w,
-                            child: SvgPicture.asset("assets/images/accept.svg"))
+                        Text("I accept the ",style: FontStyles.acceptBlack),
+                        Text("Terms of Use",style: FontStyles.accept),
+                        Text(" and ",style: FontStyles.acceptBlack),
+                        Text("Privacy Policy",style: FontStyles.accept),
                       ],
                     ),
                     Padding(
@@ -154,13 +162,15 @@ class SignUpView extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
-                          left: 20.w,right: 20.w, top: 24.h),
+                      padding:
+                          EdgeInsets.only(left: 20.w, right: 20.w, top: 24.h),
                       child: MyElevatedButton.buttonstyle(
                           ontap: () => context
                               .read<AuthCubit>()
                               .changeState(ForgotState()),
-                          text: "Sign Up with Google",textcolor: ConsColors.kTextBlack,buttoncolor: ConsColors.kWhite),
+                          text: "Sign Up with Google",
+                          textcolor: ConsColors.kTextBlack,
+                          buttoncolor: ConsColors.kWhite),
                     ),
                   ],
                 ),

@@ -9,6 +9,7 @@ class FontStyles {
   static TextStyle darkGreytextmini = TextStyle(color: ConsColors.kTextDarkGrey,fontSize: FontConst.kSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w700); 
   static TextStyle hintText = TextStyle(color: ConsColors.kTextGrey,fontSize: FontConst.kSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w700); 
   static TextStyle forgot = TextStyle(color: ConsColors.kTextGreen,fontSize: FontConst.kSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w700); 
-  static TextStyle accept = TextStyle(color: ConsColors.kTextGreen,fontSize: FontConst.kSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w400); 
+  static TextStyle accept = TextStyle(color: ConsColors.kTextGreen,fontSize: FontConst.kMinSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w400); 
+  static TextStyle acceptBlack = TextStyle(color: ConsColors.kTextBlack,fontSize: FontConst.kMinSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w400); 
   static TextStyle appBartext = TextStyle(color: ConsColors.kTextBlack,fontSize: FontConst.kMaxSmallFont,fontFamily: "Nunito",fontWeight: FontWeight.w700); 
 }

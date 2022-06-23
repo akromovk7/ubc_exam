@@ -8,6 +8,7 @@ import 'package:ubc_app/core/constants/color_const.dart';
 import 'package:ubc_app/core/constants/icon_const.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/cubit/auth_cubit.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/state/auth_state.dart';
+import 'package:ubc_app/service/navigation_service.dart';
 import 'package:ubc_app/widgets/app_bar_widget.dart';
 import 'package:ubc_app/widgets/button_widget.dart';
 import 'package:ubc_app/widgets/number_input_widgets.dart';
@@ -27,7 +28,9 @@ class ForgotPassView extends StatelessWidget {
         child: Column(
           children: [
             AppBarWidget(
-              leading: ConsIcons.leftArrow,
+              leading: IconButton(
+                  onPressed: () => NavigationService.instance.pop(),
+                  icon: ConsIcons.leftArrow),
               center: Text(
                 "Forgot Password",
                 style: FontStyles.appBartext,
@@ -41,7 +44,10 @@ class ForgotPassView extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 32.w, right: 33.w),
-                    child: SizedBox(height: 393.75.h,width: 349.w,child: SvgPicture.asset("assets/images/forgot.svg")),
+                    child: SizedBox(
+                        height: 393.75.h,
+                        width: 349.w,
+                        child: SvgPicture.asset("assets/images/forgot.svg")),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 35.h, left: 20.w),
@@ -63,13 +69,14 @@ class ForgotPassView extends StatelessWidget {
                     phoneController: phoneController,
                   ),
                   Padding(
-                  padding:
-                      EdgeInsets.only(left: 20.w,right: 20.w, top: 79.h),
-                  child: MyElevatedButton.buttonstyle(
-                      ontap: () =>
-                          context.read<AuthCubit>().changeState(OTACNumberState()),
-                      text: "Next"),
-                ),
+                    padding:
+                        EdgeInsets.only(left: 20.w, right: 20.w, top: 79.h),
+                    child: MyElevatedButton.buttonstyle(
+                        ontap: () => context
+                            .read<AuthCubit>()
+                            .changeState(OTACNumberState()),
+                        text: "Next"),
+                  ),
                 ],
               ),
             ))

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ubc_app/screens/home/view/pages/auth/view/auth_view.dart';
+import 'package:ubc_app/screens/home/view/pages/central/view/central_view.dart';
 import 'package:ubc_app/screens/home/view/pages/splash/splash_screen.dart';
 
 class MyRoute {
@@ -14,6 +15,8 @@ class MyRoute {
         return easynavigate(SplashScreenView());
         case "/auth":
         return easynavigate(AuthView());
+        case "/home":
+        return easynavigate(CentralView());
     }
   }
 

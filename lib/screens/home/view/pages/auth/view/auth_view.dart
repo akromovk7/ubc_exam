@@ -20,6 +20,7 @@ class AuthView extends StatelessWidget {
   }
 
   Scaffold authScaffold() => Scaffold(
+    resizeToAvoidBottomInset: false,
         body: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {},
           builder: (context, state) {

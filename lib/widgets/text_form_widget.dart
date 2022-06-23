@@ -24,6 +24,7 @@ class MyTextField {
         onTap: onTap,
         obscureText: isShown,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(12.0),
             hintText: text,
             hintStyle: FontStyles.hintText,
             suffixIcon: iconButton,

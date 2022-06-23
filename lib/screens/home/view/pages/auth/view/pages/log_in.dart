@@ -24,7 +24,7 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -61,25 +61,23 @@ class SignInView extends StatelessWidget {
                     phoneController: phoneController),
               ),
               FadeInUp(
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 52.h,
-                  width: 374.w,
-                  margin:
-                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-                  child: MyTextField.textField(
-                      isShown: context.watch<AuthCubit>().getShown,
-                      text: "Password",
-                      controller: passwordController,
-                      validator: ValidatorController.passwordValidator,
-                      iconButton: IconButton(
-                        onPressed: () {
-                          context.read<AuthCubit>().obSecure();
-                        },
-                        icon: ConsIcons.eye,
-                      ),
-                      prefixIcon:
-                          IconButton(onPressed: () {}, icon: ConsIcons.lock)),
+                child: Padding(padding: EdgeInsets.symmetric(horizontal: 20.0.w,vertical: 20.h),
+                  child: StatefulBuilder(
+                    builder: (context,setstate) {return MyTextField.textField(
+                        isShown: context.watch<AuthCubit>().getShown,
+                        text: "Password",
+                        controller: passwordController,
+                        validator: ValidatorController.passwordValidator,
+                        iconButton: IconButton(
+                          onPressed: () {
+                            context.read<AuthCubit>().obSecure();
+                            setstate((){});
+                          },
+                          icon: ConsIcons.eye,
+                        ),
+                        prefixIcon:
+                            IconButton(onPressed: () {}, icon: ConsIcons.lock));
+                     } ),
                 ),
               ),
               FadeInUp(
